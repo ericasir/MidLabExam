@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+class Counter extends StatelessWidget { //Stateful to StatelessWidget
+  const Counter({super.key}); //Parameter for all widget,
+  @override
+  Widget build(BuildContext context) {
+    int _counter = 0; //To keep on tracking of counts such as numbers to times of loop.
+    void _increment() { //Value of _counter.
+      _counter++;
+    }
+    return Row( //display the current value of _counter.
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: _increment,
+          child: const Text('Increment'),
+        ),
+        const SizedBox(width: 16),
+        Text('Count: $_counter'),
+      ],
+    );
+  }
+}
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Counter(),
+        ),
+      ),
+    ),
+  );
+}
